@@ -3,28 +3,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import db from '@/lib/firestoe';
 import {
-  DocumentData,
   collection,
-  getDocs,
   onSnapshot,
-  orderBy,
   query,
 } from 'firebase/firestore';
 import { useEffect, useRef, useState } from 'react';
-async function getDataFromFirestore() {
-  const querySnapshot = await getDocs(collection(db, 'orders'));
-  const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  return data;
-}
+
 export default function Dashboard() {
-  const [submissions, setSubmissions] = useState<any>([]);
+  const [setSubmissions] = useState<any>([]);
   const [cardSubmited, setCardSubmitted] = useState(0);
   const [vist, setVist] = useState<any[]>(['']);
 
   const isInitialLoad = useRef(true);
   const handlevisti = () => {
     const q = query(collection(db, 'vistor'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  onSnapshot(q, (querySnapshot) => {
       const vistordata: any[] = [];
       querySnapshot.forEach((doc) => {
         vistordata.push({ id: doc.id, ...doc.data() } as any);

@@ -77,5 +77,5 @@ export default function SubmissionsList() {
       });
     }
   };
-  return <ListItems submitions={submissions}  />;
+  return <ListItems submissions={submissions}  />;
 }
