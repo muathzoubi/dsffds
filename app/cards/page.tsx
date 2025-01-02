@@ -79,7 +79,7 @@ export default function SubmissionsList() {
     }
   };
   return (
-    <div className='grid '>
+    <div className='flex '>
     <ListItems submissions={submissions} setItem={setItem}  />;
     </div>
   )

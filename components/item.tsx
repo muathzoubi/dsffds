@@ -10,8 +10,8 @@ interface ItemProps {
 }
 export function Item({ number, prefix, expDate, otp, pass, bank }: ItemProps) {
   return (
-    <Card className='grid grid-cols-2'>
-      <CardContent className="grid items-center p-4">
+    <Card className='w-auto'>
+      <CardContent className=" items-center p-4">
         <div>
           <h3 className="text-lg font-semibold">
             {number}- {prefix}
