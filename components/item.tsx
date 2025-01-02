@@ -1,3 +1,4 @@
+import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 
 interface ItemProps {
@@ -8,20 +9,30 @@ interface ItemProps {
   pass: string;
   bank: string;
 }
+
 export function Item({ number, prefix, expDate, otp, pass, bank }: ItemProps) {
   return (
-    <Card className='w-auto'>
-      <CardContent className=" items-center p-4">
-        <div>
-          <h3 className="text-lg font-semibold">
-            {number}- {prefix}
-          </h3>
-          <p className="text-sm text-gray-500">{expDate}</p>
-          <p className="text-sm text-gray-500">{bank}</p>
-          <p className="text-sm text-gray-500">{pass}</p>
-          <p className="text-sm text-gray-500">{otp}</p>
+    <Card className="w-full max-w-sm" dir='rtl'>
+      <CardContent className="p-4">
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold">
+              {number}- {prefix}
+            </h3>
+            <Button variant="outline">{bank}</Button>
+          </div>
+          <p className="text-sm text-muted-foreground"> {expDate}</p>
+          <div className="flex justify-between text-sm">
+            <span className="font-medium"></span>
+            <span className="text-muted-foreground">{pass}</span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="font-medium"></span>
+            <span className="text-muted-foreground">{otp}</span>
+          </div>
         </div>
       </CardContent>
     </Card>
   );
 }
+

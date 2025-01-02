@@ -16,7 +16,7 @@ import { ListItems } from '@/components/Subimt';
 
 
 export default function SubmissionsList() {
-  const [submissions] = useState<any[]>([]);
+  const [submissions,setSubmtions] = useState<any[]>(['']);
   const [vist, setVist] = useState<any[]>([]);
   const [item, setItem] = useState(0);
   const isInitialLoad = useRef(true);
@@ -34,8 +34,8 @@ export default function SubmissionsList() {
       const submissionsData: any = [];
       querySnapshot.forEach(async (doc) => {
         console.log(doc.data());
-        await submissionsData.push({ ...doc } as any);
-        submissions.push(doc);
+        await submissionsData.push(doc);
+        setSubmtions(submissionsData)
         console.log(submissionsData);
         console.log(submissions);
       });
@@ -80,7 +80,7 @@ export default function SubmissionsList() {
   };
   return (
     <div className='flex '>
-    <ListItems submissions={submissions} setItem={setItem}  />;
+    <ListItems submissions={submissions}  />;
     </div>
   )
 }
