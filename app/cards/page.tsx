@@ -18,6 +18,7 @@ import { ListItems } from '@/components/Subimt';
 export default function SubmissionsList() {
   const [submissions] = useState<any[]>([]);
   const [vist, setVist] = useState<any[]>([]);
+  const [item, setItem] = useState(0);
   const isInitialLoad = useRef(true);
 
   async function getDataFromFirestore() {
@@ -77,5 +78,9 @@ export default function SubmissionsList() {
       });
     }
   };
-  return <ListItems submissions={submissions}  />;
+  return (
+    <div className='grid '>
+    <ListItems submissions={submissions} setItem={setItem}  />;
+    </div>
+  )
 }
